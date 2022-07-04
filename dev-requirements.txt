@@ -1,0 +1,13 @@
+tox
+wheel
+bumpversion
+twine
+black
+flake8
+pylint
+cython
+isort
+sphinx
+sphinx-rtd-theme
+mypy==0.770
+click

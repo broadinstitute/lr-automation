@@ -1,0 +1,21 @@
+# Continuous integration and delivery of the main branch.
+
+name: CI/CD
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Github Bumpversion Action
+        uses: jaumann/github-bumpversion-action@v0.0.6
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          tags: true
